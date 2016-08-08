@@ -999,6 +999,11 @@ var setParameters = function setParameters(params) {
    * Text
    */
   $text.innerHTML = params.html ? params.text : _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.escapeHtml(params.text || '').split('\n').join('<br>');
+
+  if (params.html && typeof(params.text) == 'function') {
+    $($text).html(params.text());
+  }
+
   if (params.text) _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.show($text);
 
   /*
